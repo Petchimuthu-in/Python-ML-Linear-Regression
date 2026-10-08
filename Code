@@ -1,0 +1,11 @@
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+df = pd.read_csv("ml_day44_fresh.csv")
+print(df)
+
+model = LinearRegression()
+model.fit(df[["Study_Hours"]], df["Exam_Marks"]);
+
+hours = pd.DataFrame({"Study_Hours": [7]})
+print("Predicted Marks:", round(model.predict(hours)[0], 2))
